@@ -19,7 +19,8 @@
 // import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 // import com.fasterxml.jackson.databind.ObjectMapper;
-// import com.scalable.components.Cart;
+// import com.scalable.model.Cart;
+// import com.scalable.repository.CartRepository;
 // import com.scalable.services.CartService;
 
 // @WebMvcTest
@@ -31,13 +32,25 @@
 // 	private ObjectMapper objectMapper;
 // 	@Autowired
 // 	private CartService cartService;
+//     @Autowired
+//     private CartRepository cartRepository;
 
 // 	@Test
 // 	void contextLoads() {
 // 	}
 
-// 	 @Test
-//     void testEditItemInCart_ItemExists() {
+//     @Test
+//     void testEditItemInCart_ItemExistsInRepository() {
+//         // Test case where the item exists and is edited successfully
+//         Cart result = cartRepository.editItemInCart(1, "item1", "newItem");
+
+//         assertNotNull(result, "Cart should not be null");
+//         assertTrue(result.getItems().contains("newItem"), "New item should be added");
+//         assertFalse(result.getItems().contains("item1"), "Old item should be removed");
+//     }
+
+// 	@Test
+//     void testEditItemInCart_ItemExistsInService() {
 //         // Test case where the item exists and is edited successfully
 //         Cart result = cartService.editItemInCart(1, "item1", "newItem");
 
@@ -47,7 +60,7 @@
 //     }
 
 //     @Test
-//     void testEditItemInCart_ItemNotFound() {
+//     void testEditItemInCart_CartNotFound() {
 //         // Test case where the cart doesn't exist
 //         Cart result = cartService.editItemInCart(4, "item1", "newItem");
 
@@ -55,7 +68,7 @@
 //     }
 
 // 	@Test
-//     void testEditItemInCart_CartNotFound() throws Exception {
+//     void testEditItemInCart_EndPoint() throws Exception {
 //         Map<String, Object> requestBody = new HashMap<>();
 //         requestBody.put("cartId", 1); // Non-existing cartId
 //         requestBody.put("item", "item1");

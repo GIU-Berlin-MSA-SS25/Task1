@@ -1,4 +1,4 @@
-package com.scalable.components;
+package com.scalable.model;
 import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
