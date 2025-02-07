@@ -22,25 +22,26 @@ public class CartRepository {
     public void addCart(Cart cart) {
          try {
             File file = new File(FILE_PATH);
+            ArrayList<Cart> carts;
             if (!file.exists()) {
-                objectMapper.writeValue(new File(FILE_PATH), List.of(cart));
-                
-            }else{
-                List<Cart> carts = Arrays.asList(objectMapper.readValue(file, Cart[].class));
-                carts.add(cart);
-                objectMapper.writeValue(file, carts);
+                carts = new ArrayList<>();
+            } else {
+                carts = new ArrayList<>(Arrays.asList(objectMapper.readValue(file, Cart[].class)));
             }
+            carts.add(cart);
+            objectMapper.writeValue(file, carts);
+            
         } catch (IOException e) {
             throw new RuntimeException("Failed to write to JSON file", e);
         }
     }
-    public List<Cart> getCarts() {
+    public ArrayList<Cart> getCarts() {
         try {
             File file = new File(FILE_PATH);
             if (!file.exists()) {
                 return new ArrayList<>();
             }
-            return Arrays.asList(objectMapper.readValue(file, Cart[].class));
+            return new ArrayList<Cart>(Arrays.asList(objectMapper.readValue(file, Cart[].class)));
         } catch (IOException e) {
             throw new RuntimeException("Failed to read from JSON file", e);
         }
