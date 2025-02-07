@@ -21,6 +21,9 @@ public class CartService {
     public void addCart(Cart cart) {
         cartRepository.addCart(cart);
     }
+    public ArrayList<Cart> getCarts() {
+        return new ArrayList<>(cartRepository.getCarts());
+    }
 
    
 

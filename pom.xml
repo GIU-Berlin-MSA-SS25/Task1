@@ -57,6 +57,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>task1</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
