@@ -4,10 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.scalable.app.model.Cart;
 
-@Component
+@Repository
 public class CartRepository {
 
     public static List< Cart> carts = new ArrayList<>();

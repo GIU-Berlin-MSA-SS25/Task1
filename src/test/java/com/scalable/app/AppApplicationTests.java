@@ -22,7 +22,7 @@
 
 // import com.fasterxml.jackson.databind.ObjectMapper;
 // import com.scalable.app.model.Cart;
-// import com.scalable.app.services.CartService;
+// import com.scalable.app.service.CartService;
 
 // @WebMvcTest
 // class AppApplicationTests {
