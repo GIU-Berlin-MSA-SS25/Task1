@@ -1,7 +1,8 @@
-package com.scalable.controller;
+package com.scalable.app.controller;
 
-import com.scalable.components.Cart;
-import com.scalable.services.CartService;
+import com.scalable.app.model.Cart;
+import com.scalable.app.services.CartService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

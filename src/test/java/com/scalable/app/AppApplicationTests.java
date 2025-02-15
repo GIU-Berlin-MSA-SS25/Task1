@@ -21,8 +21,8 @@
 // import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 // import com.fasterxml.jackson.databind.ObjectMapper;
-// import com.scalable.components.Cart;
-// import com.scalable.services.CartService;
+// import com.scalable.app.model.Cart;
+// import com.scalable.app.services.CartService;
 
 // @WebMvcTest
 // class AppApplicationTests {
@@ -42,45 +42,43 @@
 
 
 // 	 @Test
-//     void testEditItemInCart_ItemExists() {
-//         // Test case where the item exists and is edited successfully
+//     void testEditItemInCart_UpdatedCart() {
 //         Cart result = cartService.editItemInCart(1, "item1", "newItem");
 
-//     //     assertNotNull(result, "Cart should not be null");
-//     //     assertTrue(result.getItems().contains("newItem"), "New item should be added");
-//     //     assertFalse(result.getItems().contains("item1"), "Old item should be removed");
-//     // }
+//         assertNotNull(result, "Cart should not be null");
+//         assertTrue(result.getItems().contains("newItem"), "New item should be added");
+//         assertFalse(result.getItems().contains("item1"), "Old item should be removed");
+//     }
 
 //     @Test
-//     void testEditItemInCart_ItemNotFound() {
-//         // Test case where the cart doesn't exist
+//     void testEditItemInCart_CartNotFound() {
 //         Cart result = cartService.editItemInCart(4, "item1", "newItem");
 
-//     //     assertNull(result, "Cart should be null if cartId doesn't exist");
-//     // }
+//         assertNull(result, "Cart should be null if cartId doesn't exist");
+//     }
 
 // 	@Test
-//     void testEditItemInCart_CartNotFound() throws Exception {
+//     void testEditItemInCartEndpoint() throws Exception {
 //         Map<String, Object> requestBody = new HashMap<>();
 //         requestBody.put("cartId", 1); // Non-existing cartId
 //         requestBody.put("item", "item1");
 //         requestBody.put("newItem", "newItem");
 
 
-//     //      MvcResult result = mockMvc.perform(MockMvcRequestBuilders
-//     //                 .post("/editItemInCart")
-//     //                 .content(objectMapper.writeValueAsString(requestBody))
-//     //                 .contentType(MediaType.APPLICATION_JSON))
-//     //         .andExpect(MockMvcResultMatchers.status().isOk())  // Check if the status is OK (200)
-//     //         .andReturn();
+//          MvcResult result = mockMvc.perform(MockMvcRequestBuilders
+//                     .post("/editItemInCart")
+//                     .content(objectMapper.writeValueAsString(requestBody))
+//                     .contentType(MediaType.APPLICATION_JSON))
+//             .andExpect(MockMvcResultMatchers.status().isOk())  // Check if the status is OK (200)
+//             .andReturn();
 
-// 	// 	String responseContent = result.getResponse().getContentAsString();
+// 		String responseContent = result.getResponse().getContentAsString();
 
-// 	// 	Cart responseCart = objectMapper.readValue(responseContent, Cart.class);
-// 	// 	assertNotNull(responseCart);
-// 	// 	assertEquals(1, responseCart.getId());
-// 	// 	assertTrue(responseCart.getItems().contains("newItem"));
-//     // }
+// 		Cart responseCart = objectMapper.readValue(responseContent, Cart.class);
+// 		assertNotNull(responseCart);
+// 		assertEquals(1, responseCart.getId());
+// 		assertTrue(responseCart.getItems().contains("newItem"));
+//     }
 
 	
 

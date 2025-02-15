@@ -1,11 +1,11 @@
-package com.scalable.repository;
+package com.scalable.app.repository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.scalable.model.Cart;
+import com.scalable.app.model.Cart;
 
 @Component
 public class CartRepository {
@@ -18,8 +18,13 @@ public class CartRepository {
         carts.add(new Cart(2,2,new ArrayList<String>(Arrays.asList("item3","item4"))));
         carts.add(new Cart(3,3,new ArrayList<String>(Arrays.asList("item5","item6"))));
     }
-    public void addCart(Cart cart) {
+    public Cart addCart(Cart cart) {
         carts.add(cart);
+        return cart;
     }
+    public ArrayList<Cart> getCarts() {
+        return (ArrayList<Cart>) carts;
+    }
+
     
 }
