@@ -21,8 +21,7 @@
 // import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 // import com.fasterxml.jackson.databind.ObjectMapper;
-// import com.scalable.model.Cart;
-// import com.scalable.repository.CartRepository;
+// import com.scalable.components.Cart;
 // import com.scalable.services.CartService;
 
 // @WebMvcTest
@@ -35,8 +34,6 @@
 // 	private ObjectMapper objectMapper;
 // 	@Autowired
 // 	private CartService cartService;
-//     @Autowired
-//     private CartRepository cartRepository;
 
 // 	@Test
 // 	void contextLoads() {
@@ -44,51 +41,30 @@
     
 
 
-//     @Test
-//     void testEditItemInCart_ItemExistsInRepository() {
+// 	 @Test
+//     void testEditItemInCart_ItemExists() {
 //         // Test case where the item exists and is edited successfully
-//         Cart result = cartRepository.editItemInCart(1, "item1", "newItem");
-
-//         assertNotNull(result, "Cart should not be null");
-//         assertTrue(result.getItems().contains("newItem"), "New item should be added");
-//         assertFalse(result.getItems().contains("item1"), "Old item should be removed");
-
-//         List<Cart> carts = cartRepository.getCarts();
-//         boolean cartExist = false;
-//         for(Cart cart : carts){
-//             if(cart.getId() == 1 && cart.getUserId() == 1 && cart.getItems().contains("newItem")){
-//                 cartExist = true;
-//                 break;
-//             }
-//         }
-//         assertTrue(cartExist, "Updated Cart should exist in data.json");
-
-//     }
-
-// 	// @Test
-//     // void testEditItemInCart_ItemExistsInService() {
-//     //     // Test case where the item exists and is edited successfully
-//     //     Cart result = cartService.editItemInCart(1, "item1", "newItem");
+//         Cart result = cartService.editItemInCart(1, "item1", "newItem");
 
 //     //     assertNotNull(result, "Cart should not be null");
 //     //     assertTrue(result.getItems().contains("newItem"), "New item should be added");
 //     //     assertFalse(result.getItems().contains("item1"), "Old item should be removed");
 //     // }
 
-//     // @Test
-//     // void testEditItemInCart_CartNotFound() {
-//     //     // Test case where the cart doesn't exist
-//     //     Cart result = cartService.editItemInCart(999, "item1", "newItem");
+//     @Test
+//     void testEditItemInCart_ItemNotFound() {
+//         // Test case where the cart doesn't exist
+//         Cart result = cartService.editItemInCart(4, "item1", "newItem");
 
 //     //     assertNull(result, "Cart should be null if cartId doesn't exist");
 //     // }
 
-// 	// @Test
-//     // void testEditItemInCart_EndPoint() throws Exception {
-//     //     Map<String, Object> requestBody = new HashMap<>();
-//     //     requestBody.put("cartId", 1); // Non-existing cartId
-//     //     requestBody.put("item", "item1");
-//     //     requestBody.put("newItem", "newItem");
+// 	@Test
+//     void testEditItemInCart_CartNotFound() throws Exception {
+//         Map<String, Object> requestBody = new HashMap<>();
+//         requestBody.put("cartId", 1); // Non-existing cartId
+//         requestBody.put("item", "item1");
+//         requestBody.put("newItem", "newItem");
 
 
 //     //      MvcResult result = mockMvc.perform(MockMvcRequestBuilders
