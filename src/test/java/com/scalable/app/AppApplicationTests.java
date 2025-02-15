@@ -68,7 +68,7 @@
 //          MvcResult result = mockMvc.perform(MockMvcRequestBuilders
 //                     .post("/editItemInCart")
 //                     .param("cartId","2")
-//                     .param("oldItem","item3")
+//                     .param("item","item3")
 //                     .param("newItem","newItem3")
 //                     .contentType(MediaType.APPLICATION_JSON))
 //             .andExpect(MockMvcResultMatchers.status().isOk())  // Check if the status is OK (200)
