@@ -12,9 +12,13 @@
 
 // import org.springframework.http.MediaType;
 // import org.junit.jupiter.api.Test;
+// import org.mockito.Mock;
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.beans.factory.annotation.Value;
+// import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 // import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+// import org.springframework.boot.test.context.SpringBootTest;
+// import org.springframework.boot.test.mock.mockito.MockBean;
 // import org.springframework.test.web.servlet.MockMvc;
 // import org.springframework.test.web.servlet.MvcResult;
 // import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -24,7 +28,8 @@
 // import com.scalable.app.model.Cart;
 // import com.scalable.app.service.CartService;
 
-// @WebMvcTest
+// @SpringBootTest
+// @AutoConfigureMockMvc
 // class AppApplicationTests {
     
 // 	@Autowired
@@ -32,6 +37,7 @@
 
 // 	@Autowired
 // 	private ObjectMapper objectMapper;
+
 // 	@Autowired
 // 	private CartService cartService;
 
@@ -43,10 +49,10 @@
 
 // 	 @Test
 //     void testEditItemInCart_UpdatedCart() {
-//         Cart result = cartService.editItemInCart(1, "item1", "newItem");
+//         Cart result = cartService.editItemInCart(1, "item1", "newItem1");
 
 //         assertNotNull(result, "Cart should not be null");
-//         assertTrue(result.getItems().contains("newItem"), "New item should be added");
+//         assertTrue(result.getItems().contains("newItem1"), "New item should be added");
 //         assertFalse(result.getItems().contains("item1"), "Old item should be removed");
 //     }
 
@@ -59,15 +65,11 @@
 
 // 	@Test
 //     void testEditItemInCartEndpoint() throws Exception {
-//         Map<String, Object> requestBody = new HashMap<>();
-//         requestBody.put("cartId", 1); // Non-existing cartId
-//         requestBody.put("item", "item1");
-//         requestBody.put("newItem", "newItem");
-
-
 //          MvcResult result = mockMvc.perform(MockMvcRequestBuilders
 //                     .post("/editItemInCart")
-//                     .content(objectMapper.writeValueAsString(requestBody))
+//                     .param("cartId","2")
+//                     .param("oldItem","item3")
+//                     .param("newItem","newItem3")
 //                     .contentType(MediaType.APPLICATION_JSON))
 //             .andExpect(MockMvcResultMatchers.status().isOk())  // Check if the status is OK (200)
 //             .andReturn();
@@ -76,8 +78,8 @@
 
 // 		Cart responseCart = objectMapper.readValue(responseContent, Cart.class);
 // 		assertNotNull(responseCart);
-// 		assertEquals(1, responseCart.getId());
-// 		assertTrue(responseCart.getItems().contains("newItem"));
+// 		assertEquals(2, responseCart.getId());
+// 		assertTrue(responseCart.getItems().contains("newItem3"));
 //     }
 
 	

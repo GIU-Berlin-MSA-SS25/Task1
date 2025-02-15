@@ -26,6 +26,20 @@ public class CartRepository {
     public ArrayList<Cart> getCarts() {
         return (ArrayList<Cart>) carts;
     }
+    public Cart editItemInCart(int cartId, String oldItem, String newItem) {
+        for (Cart cart : carts) {
+            if (cart.getId() == cartId) {
+                ArrayList<String> items = cart.getItems();
+                if (items.contains(oldItem)) {
+                    items.remove(oldItem);
+                    items.add(newItem);
+                    cart.setItems(items);
+                    return cart;
+                }
+            }
+        }
+        return null;
+    }
 
     
 }
